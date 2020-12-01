@@ -4,10 +4,11 @@ using MarsFramework.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using RelevantCodes.ExtentReports;
+//using RelevantCodes.ExtentReports;
 using System;
 using static MarsFramework.Global.GlobalDefinitions;
 using System.IO;
+
 
 namespace MarsFramework.Global
 {
@@ -19,7 +20,7 @@ namespace MarsFramework.Global
         public static string excel = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\");
 
         public static string ExcelPath = excel + @"\ExcelData\TestData.xlsx";
-        public static string ScreenshotPath = excel + @"\TestReports";
+        public static string ScreenshotPath = excel + @"\TestReports\Screenshots";
         
         //public static string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\");
         public static string ReportPath = excel + @"\TestReports\Report.html";
@@ -63,7 +64,7 @@ namespace MarsFramework.Global
             
         }
 
-       
+
 
         [TearDown]
         public void TearDown()

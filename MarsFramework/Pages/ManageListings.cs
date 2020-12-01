@@ -322,7 +322,7 @@ namespace MarsFramework.Pages
         }
         internal void ClickOnDeleteBtn()
         {
-            GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr/td[8]/div/button[3]/i"), 2);
+            //GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr/td[8]/div/button[3]/i"), 2);
             deleteBtn.Click();
             AlertYes.Click();
         }
