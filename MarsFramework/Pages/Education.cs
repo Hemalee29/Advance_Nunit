@@ -111,7 +111,7 @@ namespace MarsFramework.Pages
         //Delete button
         [FindsBy(How = How.XPath, Using = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]/i")]
         private IWebElement Deletebutton { get; set; }
-        internal void Education_Add()
+        public void Education_Add()
         {
             Thread.Sleep(2000);
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Education");
@@ -133,7 +133,7 @@ namespace MarsFramework.Pages
 
         }
 
-        internal void Education_Edit()
+       public void Education_Edit()
         {
             Thread.Sleep(2000);
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Education");
@@ -156,7 +156,7 @@ namespace MarsFramework.Pages
 
         }
 
-        internal void Education_Delete()
+        public void Education_Delete()
         {
             Thread.Sleep(2000);
             ClickEducationtab.Click();

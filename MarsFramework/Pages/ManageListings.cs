@@ -289,15 +289,15 @@ namespace MarsFramework.Pages
             Thread.Sleep(2000);
             //Initialize Excel file
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "ManageListings");
-            string actualText = GlobalDefinitions.ExcelLib.ReadData(dataRow, "Title");
-            if (getTitle.Text == actualText)
-            {
-                Assert.Pass("Record is Edited successfuly", "Test Pass");
-            }
-            else
-            {
-                Assert.Pass("Record is not Edited ", "Test Fail");
-            }
+            //string actualText = GlobalDefinitions.ExcelLib.ReadData(dataRow, "Title");
+            //if (getTitle.Text == actualText)
+            //{
+            //    Assert.Pass("Record is Edited successfuly", "Test Pass");
+            //}
+            //else
+            //{
+            //    Assert.Pass("Record is not Edited ", "Test Fail");
+            //}
         }
 
         internal void DeleteRecordIfExist(int dataRow)

@@ -70,15 +70,6 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to your path.
-        /// </summary>
-        internal static string ExcelPath {
-            get {
-                return ResourceManager.GetString("ExcelPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to true.
         /// </summary>
         internal static string IsLogin {
@@ -88,7 +79,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to your path.
+        ///   Looks up a localized string similar to D:\Internship_2020\Advance Task\Nunit\marsframework\MarsFramework\TestReports\Report.
         /// </summary>
         internal static string ReportPath {
             get {
@@ -97,7 +88,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to your path.
+        ///   Looks up a localized string similar to D:\Internship_2020\Advance Task\Nunit\marsframework\MarsFramework\Config.
         /// </summary>
         internal static string ReportXMLPath {
             get {
@@ -106,7 +97,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to your path.
+        ///   Looks up a localized string similar to D:\Internship_2020\Advance Task\Nunit\marsframework\MarsFramework\TestReports\Screenshots.
         /// </summary>
         internal static string ScreenShotPath {
             get {
