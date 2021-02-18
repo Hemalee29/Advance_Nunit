@@ -1,4 +1,5 @@
 ﻿using MarsFramework.Global;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
@@ -111,47 +112,94 @@ namespace MarsFramework.Pages
         //Delete button
         [FindsBy(How = How.XPath, Using = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]/i")]
         private IWebElement Deletebutton { get; set; }
-        public void Education_Add()
+
+
+        //Assertion
+        [FindsBy(How = How.XPath, Using = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[2]")]
+        private IWebElement Cheak_Education { get; set; }
+        public void Education_Add(int data)
         {
             Thread.Sleep(2000);
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Education");
 
             ClickEducationtab.Click();
+            Thread.Sleep(2000);
             ClickAddnew.Click();
+            Thread.Sleep(2000);
             ClickCollage.Click();
-            ClickCollage.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Collage"));
+            Thread.Sleep(2000);
+            ClickCollage.SendKeys(GlobalDefinitions.ExcelLib.ReadData(data, "Collage"));
             collagedropdown.Click();
+            Thread.Sleep(2000);
             Collagevalue.Click();
+            Thread.Sleep(2000);
             selectTitle.Click();
+            Thread.Sleep(2000);
             Titlevalue.Click();
+            Thread.Sleep(2000);
             Degree.Click();
-            Degree.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Degree"));
+            Degree.SendKeys(GlobalDefinitions.ExcelLib.ReadData(data, "Degree"));
             graduation.Click();
+            Thread.Sleep(2000);
             graduationvalue.Click();
+            Thread.Sleep(2000);
             ClickAdd.Click();
 
 
         }
 
-       public void Education_Edit()
+        public void Check_Education(int data)
+        {
+            GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Education");
+
+
+
+
+            if (Cheak_Education.Text == (GlobalDefinitions.ExcelLib.ReadData(data, "Collage")))
+            {
+                Assert.Pass("Successfully add Record");
+
+            }
+            else
+            {
+                Assert.Fail("Successfully not add Record");
+            }
+
+
+
+
+        }
+
+        public void Education_Edit(int data)
         {
             Thread.Sleep(2000);
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Education");
 
             ClickEducationtab.Click();
+            Thread.Sleep(2000);
             Editbutton.Click();
+            Thread.Sleep(2000);
             Editcollage.Click();
+            Thread.Sleep(2000);
             Editcollage.Clear();
-            Editcollage.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "EditCollage"));
+            Thread.Sleep(2000);
+            Editcollage.SendKeys(GlobalDefinitions.ExcelLib.ReadData(data, "EditCollage"));
             Editcollagedropdown.Click();
+            Thread.Sleep(2000);
             Editdropdownvalue.Click();
+            Thread.Sleep(2000);
             EditTitle.Click();
+            Thread.Sleep(2000);
             EditTitlevalue.Click();
+            Thread.Sleep(2000);
             EditDegree.Click();
             EditDegree.Clear();
-            EditDegree.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "EditCollage"));
+            Thread.Sleep(2000);
+            EditDegree.SendKeys(GlobalDefinitions.ExcelLib.ReadData(data, "EditCollage"));
             Editgraduationyear.Click();
+            Thread.Sleep(2000);
             Editgraduationyearvalue.Click();
+            Thread.Sleep(2000);
             Updatebutton.Click();
 
         }

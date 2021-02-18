@@ -20,8 +20,18 @@ namespace MarsFramework.Test
             {
                 Thread.Sleep(2000);
                 Langauge _Language = new Langauge();
-                _Language.Langauge_Add();
+                for(int i=2; i<=5; i++)
+                {
+                    _Language.Langauge_Add(i);
+                    //_Language.Check_Language(i);
+                }
 
+                for (int i=2; i<=5; i++)
+                {
+                    //_Language.Langauge_Add(i);
+                    _Language.Check_Language(i);
+                    break;
+                }
             }
 
             [Test, Order(2)]
@@ -29,7 +39,15 @@ namespace MarsFramework.Test
             {
                 Thread.Sleep(2000);
                 Langauge _Language = new Langauge();
-                _Language.Language_Edit();
+                //for (int i=2; i<=5; i++)
+                //{
+                    _Language.Language_Edit(3);
+                //}
+
+                
+                    //_Language.Check_Edit_Language(3);
+               
+
 
             }
             [Test, Order(3)]

@@ -20,8 +20,19 @@ namespace MarsFramework.Test
             {
                 Thread.Sleep(2000);
                 Certificate _certificate = new Certificate();
-                _certificate.Certificate_Add();
-   
+                for (int i = 2; i <= 3; i++)
+                {
+                    _certificate.Certificate_Add(i);
+                    
+                }
+
+                for (int i = 2; i <= 3; i++)
+                {
+                    _certificate.Check_Certificate(i);
+
+                }
+
+
             }
 
             [Test, Order(2)]
@@ -29,7 +40,13 @@ namespace MarsFramework.Test
             {
                 Thread.Sleep(2000);
                 Certificate _certificate = new Certificate();
-                _certificate.Certificate_Edit();
+                for (int i = 2; i <= 3; i++)
+                {
+                    _certificate.Certificate_Edit(i);
+
+
+
+                }
 
 
             }

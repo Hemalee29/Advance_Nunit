@@ -1,4 +1,5 @@
 ﻿using MarsFramework.Global;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
@@ -69,21 +70,49 @@ namespace MarsFramework.Pages
         [FindsBy(How = How.XPath, Using = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i")]
         private IWebElement Deletebutton { get; set; }
 
-        internal void Skill_Add()
+        //Assertion
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[1]")]
+        private IWebElement Cheak_Skill { get; set; }
+       
+
+        internal void Skill_Add(int data)
         {
             Thread.Sleep(2000);
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Skill");
             ClickSkilltab.Click();
             Addnewbutton.Click();
             AddSkill.Click();
-            AddSkill.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Skill"));
+            AddSkill.SendKeys(GlobalDefinitions.ExcelLib.ReadData(data, "Add_Skill"));
             SelectSkill.Click();
             Intermediate.Click();
             AddButton.Click();
 
         }
 
-        internal void Skill_Edit()
+        public void Check_Skill(int data)
+        {
+            GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Skill");
+
+
+
+
+            if (Cheak_Skill.Text == (GlobalDefinitions.ExcelLib.ReadData(data, "Add_Skill")))
+            {
+                Assert.Pass("Successfully add Skill" + Cheak_Skill.Text);
+
+            }
+            else
+            {
+                Assert.Fail("Successfully not add Skill");
+            }
+
+
+
+
+        }
+
+        internal void Skill_Edit(int data)
         {
             Thread.Sleep(2000);
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Skill");
@@ -91,7 +120,7 @@ namespace MarsFramework.Pages
             EditButton.Click();
             Editskill.Click();
             Editskill.Clear();
-            Editskill.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "EditSkill"));
+            Editskill.SendKeys(GlobalDefinitions.ExcelLib.ReadData(data, "EditSkill"));
             EditDropdown.Click();
             Expert.Click();
             Updatebutton.Click();

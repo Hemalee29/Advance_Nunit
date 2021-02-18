@@ -22,9 +22,17 @@ namespace MarsFramework.Test
                 Thread.Sleep(2000);
                 Skill _Skill = new Skill();
                 
-                _Skill.Skill_Add();
+                
 
+                for (int i = 2; i <= 4; i++)
+                {
+                    _Skill.Skill_Add(i);
+                }
 
+                for (int i = 2; i <= 4; i++)
+                {
+                    _Skill.Check_Skill(i);
+                }
             }
 
             [Test, Order(2)]
@@ -33,8 +41,11 @@ namespace MarsFramework.Test
                 Thread.Sleep(2000);
                 Skill _Skill = new Skill();
 
-                _Skill.Skill_Edit();
-
+ 
+                for (int i = 2; i <= 4; i++)
+                {
+                    _Skill.Skill_Edit(i);
+                }
             }
             [Test, Order(3)]
             public void Skill_Delete()

@@ -20,8 +20,18 @@ namespace MarsFramework.Test
             {
                 Thread.Sleep(2000);
                 Education _Education = new Education(); 
-                _Education.Education_Add();
+                
+                for (int i = 2; i <= 3; i++)
+                {
+                    _Education.Education_Add(i);
+                    
+                }
 
+                for (int i = 2; i <= 3; i++)
+                {
+                    _Education.Check_Education(i);
+
+                }
 
             }
 
@@ -30,8 +40,12 @@ namespace MarsFramework.Test
             {
                 Thread.Sleep(2000);
                 Education _Education = new Education();
-                _Education.Education_Edit();
-
+               
+                for (int i = 2; i <= 3; i++)
+                {
+                    _Education.Education_Edit(i);
+                    
+                }
 
             }
             [Test, Order(3)]

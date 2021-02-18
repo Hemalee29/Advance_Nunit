@@ -1,4 +1,5 @@
 ﻿using MarsFramework.Global;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
@@ -74,16 +75,26 @@ namespace MarsFramework.Pages
         //Delete button
         [FindsBy(How = How.XPath, Using = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[4]/span[2]/i")]
         private IWebElement Deletebutton { get; set; }
-        internal void Certificate_Add()
+
+        //Assertion
+        [FindsBy(How = How.XPath, Using = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody[1]/tr/td[1]")]
+        private IWebElement cheakcertificate { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody[1]/tr/td[2]")]
+        private IWebElement cheakcertificatefrom { get; set; }
+
+
+
+        internal void Certificate_Add(int data)
         {
             Thread.Sleep(2000);
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Certificate");
             ClickCertificatetab.Click();
             Addnewbutton.Click();
             EnterCertificate.Click();
-            EnterCertificate.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Certificate"));
+            EnterCertificate.SendKeys(GlobalDefinitions.ExcelLib.ReadData(data, "Certificatename"));
             CertificateFrom.Click();
-            CertificateFrom.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "CertificateFrom"));
+            CertificateFrom.SendKeys(GlobalDefinitions.ExcelLib.ReadData(data, "CertificateFrom"));
             Selectyear.Click();
             Selectyearvalue.Click();
             add.Click();
@@ -92,7 +103,29 @@ namespace MarsFramework.Pages
 
         }
 
-        internal void Certificate_Edit()
+        public void Check_Certificate(int data)
+        {
+            GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Certificate");
+
+
+
+
+            if (cheakcertificate.Text == (GlobalDefinitions.ExcelLib.ReadData(data, "Certificatename")))
+            {
+                Assert.Pass("Successfully add Certificate" + cheakcertificate.Text);
+
+            }
+            else
+            {
+                Assert.Fail("Successfully not add Certificate");
+            }
+
+
+            
+
+        }
+
+        internal void Certificate_Edit(int data)
         {
             Thread.Sleep(2000);
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Certificate");
@@ -100,10 +133,10 @@ namespace MarsFramework.Pages
             Editbutton.Click();
             EditCertificate.Click();
             EditCertificate.Clear();
-            EditCertificate.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "EditCertificate"));
+            EditCertificate.SendKeys(GlobalDefinitions.ExcelLib.ReadData(data, "EditCertificate"));
             EditCertificateFrom.Click();
             EditCertificateFrom.Clear();
-            EditCertificateFrom.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "EditCertificateFrom"));
+            EditCertificateFrom.SendKeys(GlobalDefinitions.ExcelLib.ReadData(data, "EditCertificateFrom"));
             Edityear.Click();
             Edityearvalue.Click();
             Updatebutton.Click();
